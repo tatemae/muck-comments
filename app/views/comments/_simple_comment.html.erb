@@ -1,0 +1,4 @@
+<div id="<%= comment.dom_id %>">
+  <div class="commentor-icon"><%= icon comment.user %></div>
+  <div class="comment-body"><%= h limit_comment(comment.body, truncate, length, omission) %></div>
+</div>
