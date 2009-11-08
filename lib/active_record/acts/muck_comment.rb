@@ -14,6 +14,7 @@ module ActiveRecord
           belongs_to :user
           belongs_to :commentable, :counter_cache => 'comment_count', :polymorphic => true, :touch => true
 
+          named_scope :limit, lambda { |num| { :limit => num } }
           named_scope :by_newest, :order => "created_at DESC"
           named_scope :by_oldest, :order => "created_at ASC"
           named_scope :recent, lambda { { :conditions => ['created_at > ?', 1.week.ago] } }

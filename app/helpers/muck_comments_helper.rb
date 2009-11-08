@@ -1,11 +1,11 @@
 module MuckCommentsHelper
   
   def latest_simple_comments(limit = 5, truncate = true, length = 30, omission = '...')
-    render :partial => 'comments/simple_comment', :collection => Comment.by_newest(:limit => limit), :locals => { :truncate => truncate, :length => length, :omission => omission }
+    render :partial => 'comments/simple_comment', :collection => Comment.by_newest.limit(limit), :locals => { :truncate => truncate, :length => length, :omission => omission }
   end
   
   def latest_comments(limit = 5, truncate = true, length = 30, omission = '...')
-    render :partial => 'comments/comment', :collection => Comment.by_newest(:limit => limit), :locals => { :truncate => truncate, :length => length, :omission => omission }
+    render :partial => 'comments/comment', :collection => Comment.by_newest.limit(limit), :locals => { :truncate => truncate, :length => length, :omission => omission }
   end
   
   def show_comments(comments)
