@@ -104,12 +104,15 @@ class Muck::CommentsController < ApplicationController
   end
 
   def get_parent_comment_html(parent, comment)
+    truncate_comment = false
+    length = 30
+    omission = '...'
     render_as_html do
-      render_to_string(:partial => "#{parent.class.to_s.tableize}/comment", :object => comment, :locals => {:comment_owner => parent})
+      render_to_string(:partial => "#{parent.class.to_s.tableize}/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
     end
   rescue ActionView::MissingTemplate
     render_as_html do
-      render_to_string(:partial => "comments/comment", :object => comment, :locals => {:comment_owner => parent})
+      render_to_string(:partial => "comments/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
     end
     #I18n.t('muck.comments.missing_comment_template_error', :partial => "#{parent.class.to_s.tableize}/comment")
   end

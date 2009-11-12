@@ -1,4 +1,4 @@
-RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 
 require File.join(File.dirname(__FILE__), 'boot')
 
@@ -22,9 +22,11 @@ Rails::Initializer.run do |config|
   config.gem 'mbleigh-acts-as-taggable-on', :lib => "acts-as-taggable-on", :source => "http://gems.github.com"
   config.gem "collectiveidea-awesome_nested_set", :lib => 'awesome_nested_set', :source => "http://gems.github.com"
   config.gem "friendly_id", :version => '>=2.1.3'
+  config.gem "paperclip"
   config.gem "babelphish"
   config.gem 'muck-engine', :lib => 'muck_engine'
   config.gem 'muck-users', :lib => 'muck_users'
+  config.gem 'muck-profiles', :lib => 'muck_profiles'
   config.gem 'muck-activities', :lib => 'muck_activities'
   config.plugin_locators << TestGemLocator
 end

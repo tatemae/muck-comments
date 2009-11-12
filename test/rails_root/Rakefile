@@ -13,11 +13,12 @@ require 'muck_comments/tasks'
 require 'muck_engine/tasks'
 require 'muck_users/tasks'
 require 'muck_activities/tasks'
+require 'muck_profiles/tasks'
 
 namespace :muck do
   
   def muck_gems
-    ['../../muck-engine', '../../muck-users', '../../muck-activities', '../../muck-comments']
+    ['muck-engine', 'muck-users', 'muck-activities', 'muck-comments', 'muck-profiles']
   end
   
 end

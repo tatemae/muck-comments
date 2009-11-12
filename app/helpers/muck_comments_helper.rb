@@ -1,15 +1,15 @@
 module MuckCommentsHelper
   
-  def latest_simple_comments(limit = 5, truncate = true, length = 30, omission = '...')
-    render :partial => 'comments/simple_comment', :collection => Comment.by_newest.limit(limit), :locals => { :truncate => truncate, :length => length, :omission => omission }
+  def latest_simple_comments(limit = 5, truncate_comment = true, length = 30, omission = '...')
+    render :partial => 'comments/simple_comment', :collection => Comment.by_newest.limit(limit), :locals => { :truncate_comment => truncate_comment, :length => length, :omission => omission }
   end
   
-  def latest_comments(limit = 5, truncate = true, length = 30, omission = '...')
-    render :partial => 'comments/comment', :collection => Comment.by_newest.limit(limit), :locals => { :truncate => truncate, :length => length, :omission => omission }
+  def latest_comments(limit = 5, truncate_comment = true, length = 30, omission = '...')
+    render :partial => 'comments/comment', :collection => Comment.by_newest.limit(limit), :locals => { :truncate_comment => truncate_comment, :length => length, :omission => omission }
   end
   
-  def show_comments(comments)
-    render :partial => 'comments/comment', :collection => comments
+  def show_comments(comments, truncate_comment = false, length = 30, omission = '...')
+    render :partial => 'comments/comment', :collection => comments, :locals => { :truncate_comment => truncate_comment, :length => length, :omission => omission }
   end
   
   # parent is the object to which the comments will be attached
@@ -41,8 +41,8 @@ module MuckCommentsHelper
                                                          :delete_path => comment_path(comment, :format => 'js') }
   end
   
-  def limit_comment(text, truncate = false, length = 30, omission = '...')
-    if truncate
+  def limit_comment(text, truncate_comment = false, length = 30, omission = '...')
+    if truncate_comment
       html_summarize(text, length, omission)
     else
       text

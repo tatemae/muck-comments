@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
     c.crypto_provider = Authlogic::CryptoProviders::BCrypt
   end
   acts_as_muck_user
+  has_muck_profile
   has_many :comments
   acts_as_commentable
 end
