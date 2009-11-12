@@ -49,10 +49,10 @@ begin
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "muck-comments"
     gemspec.summary = "The comment engine for the muck system"
-    gemspec.email = "justinball@gmail.com"
+    gemspec.email = "justin@tatemae.com"
     gemspec.homepage = "http://github.com/tatemae/muck_comments"
     gemspec.description = "The comment engine for the muck system."
-    gemspec.authors = ["Justin Ball"]
+    gemspec.authors = ["Justin Ball", "Joel Duffin"]
     gemspec.rubyforge_project = 'muck-comments'
     gemspec.add_dependency "muck-engine"
     gemspec.add_dependency "muck-users"
@@ -62,5 +62,5 @@ begin
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
-  puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
+  puts "Jeweler not available. Install it with: sudo gem install jeweler"
 end
