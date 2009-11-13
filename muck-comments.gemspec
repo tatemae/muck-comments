@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{muck-comments}
-  s.version = "0.1.14"
+  s.version = "0.1.15"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2009-11-07}
+  s.date = %q{2009-11-13}
   s.description = %q{The comment engine for the muck system.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -93,13 +93,13 @@ Gem::Specification.new do |s|
      "tasks/muck_comments_tasks.rake",
      "test/rails_root/.gitignore",
      "test/rails_root/.rake_tasks",
-     "test/rails_root/Capfile",
      "test/rails_root/Rakefile",
      "test/rails_root/app/controllers/application_controller.rb",
      "test/rails_root/app/controllers/default_controller.rb",
      "test/rails_root/app/helpers/application_helper.rb",
      "test/rails_root/app/models/.keep",
      "test/rails_root/app/models/comment.rb",
+     "test/rails_root/app/models/profile.rb",
      "test/rails_root/app/models/user.rb",
      "test/rails_root/app/models/user_session.rb",
      "test/rails_root/app/views/default/index.html.erb",
@@ -125,7 +125,7 @@ Gem::Specification.new do |s|
      "test/rails_root/db/migrate/20090402234137_create_languages.rb",
      "test/rails_root/db/migrate/20090426041056_create_countries.rb",
      "test/rails_root/db/migrate/20090426041103_create_states.rb",
-     "test/rails_root/db/migrate/20090602041838_create_users.rb",
+     "test/rails_root/db/migrate/20090512013727_create_profiles.rb",
      "test/rails_root/db/migrate/20090608073052_create_friends.rb",
      "test/rails_root/db/migrate/20090613173314_create_comments.rb",
      "test/rails_root/db/migrate/20090703055724_add_contents.rb",
@@ -177,10 +177,13 @@ Gem::Specification.new do |s|
      "test/rails_root/public/images/icons/comment.png",
      "test/rails_root/public/images/icons/delete.png",
      "test/rails_root/public/images/icons/exclaim.png",
+     "test/rails_root/public/images/icons/external.png",
+     "test/rails_root/public/images/icons/feed.png",
      "test/rails_root/public/images/icons/grey_guy.png",
      "test/rails_root/public/images/icons/hide.png",
      "test/rails_root/public/images/icons/information.png",
      "test/rails_root/public/images/icons/minus.png",
+     "test/rails_root/public/images/icons/pending.png",
      "test/rails_root/public/images/icons/question.png",
      "test/rails_root/public/images/icons/search_box.png",
      "test/rails_root/public/images/icons/star.png",
@@ -207,6 +210,7 @@ Gem::Specification.new do |s|
      "test/rails_root/public/javascripts/jquery/jquery.jgrowl.js",
      "test/rails_root/public/javascripts/jquery/jquery.js",
      "test/rails_root/public/javascripts/jquery/jquery.tips.js",
+     "test/rails_root/public/javascripts/jquery/jrails.js",
      "test/rails_root/public/javascripts/muck.js",
      "test/rails_root/public/javascripts/muck_activities.js",
      "test/rails_root/public/javascripts/muck_time/en.js",
@@ -313,6 +317,7 @@ Gem::Specification.new do |s|
      "test/rails_root/public/stylesheets/jquery/ui-lightness/images/ui-icons_ffd27a_256x240.png",
      "test/rails_root/public/stylesheets/jquery/ui-lightness/images/ui-icons_ffffff_256x240.png",
      "test/rails_root/public/stylesheets/jquery/ui-lightness/jquery-ui-1.7.1.custom.css",
+     "test/rails_root/public/stylesheets/muck-activities.css",
      "test/rails_root/public/stylesheets/reset.css",
      "test/rails_root/public/stylesheets/styles.css",
      "test/rails_root/public/stylesheets/themes/blue/styles.css",
@@ -334,16 +339,8 @@ Gem::Specification.new do |s|
      "test/rails_root/script/process/spawner",
      "test/rails_root/script/runner",
      "test/rails_root/script/server",
-     "test/rails_root/test/factories.rb",
      "test/rails_root/test/functional/.keep",
      "test/rails_root/test/functional/comments_controller_test.rb",
-     "test/rails_root/test/mocks/development/.keep",
-     "test/rails_root/test/mocks/test/.keep",
-     "test/rails_root/test/shoulda_macros/controller.rb",
-     "test/rails_root/test/shoulda_macros/forms.rb",
-     "test/rails_root/test/shoulda_macros/models.rb",
-     "test/rails_root/test/shoulda_macros/pagination.rb",
-     "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
      "test/rails_root/test/unit/.keep",
      "test/rails_root/test/unit/comment_mailer_test.rb",
@@ -354,7 +351,7 @@ Gem::Specification.new do |s|
      "test/rails_root/vendor/plugins/ssl_requirement/test/ssl_requirement_test.rb",
      "uninstall.rb"
   ]
-  s.homepage = %q{http://github.com/jbasdf/muck_comments}
+  s.homepage = %q{http://github.com/tatemae/muck_comments}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{muck-comments}
@@ -365,6 +362,7 @@ Gem::Specification.new do |s|
      "test/rails_root/app/controllers/default_controller.rb",
      "test/rails_root/app/helpers/application_helper.rb",
      "test/rails_root/app/models/comment.rb",
+     "test/rails_root/app/models/profile.rb",
      "test/rails_root/app/models/user.rb",
      "test/rails_root/app/models/user_session.rb",
      "test/rails_root/config/boot.rb",
@@ -384,7 +382,7 @@ Gem::Specification.new do |s|
      "test/rails_root/db/migrate/20090402234137_create_languages.rb",
      "test/rails_root/db/migrate/20090426041056_create_countries.rb",
      "test/rails_root/db/migrate/20090426041103_create_states.rb",
-     "test/rails_root/db/migrate/20090602041838_create_users.rb",
+     "test/rails_root/db/migrate/20090512013727_create_profiles.rb",
      "test/rails_root/db/migrate/20090608073052_create_friends.rb",
      "test/rails_root/db/migrate/20090613173314_create_comments.rb",
      "test/rails_root/db/migrate/20090703055724_add_contents.rb",
@@ -402,13 +400,7 @@ Gem::Specification.new do |s|
      "test/rails_root/features/support/paths.rb",
      "test/rails_root/public/dispatch.rb",
      "test/rails_root/script/create_project.rb",
-     "test/rails_root/test/factories.rb",
      "test/rails_root/test/functional/comments_controller_test.rb",
-     "test/rails_root/test/shoulda_macros/controller.rb",
-     "test/rails_root/test/shoulda_macros/forms.rb",
-     "test/rails_root/test/shoulda_macros/models.rb",
-     "test/rails_root/test/shoulda_macros/pagination.rb",
-     "test/rails_root/test/shoulda_macros/plugins.rb",
      "test/rails_root/test/test_helper.rb",
      "test/rails_root/test/unit/comment_mailer_test.rb",
      "test/rails_root/test/unit/comment_test.rb",
