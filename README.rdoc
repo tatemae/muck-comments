@@ -5,12 +5,11 @@ Add comments to any object.  This gem is the muck version of acts_as_commentable
 == Setup
 Install the the awesome_nested_set gem (http://github.com/collectiveidea/awesome_nested_set/tree/master)
 
-  gem sources -a http://gems.github.com
-  sudo gem install collectiveidea-awesome_nested_set
+  sudo gem install awesome_nested_set
 
 Then add it to your environment.rb:
 
-  config.gem "collectiveidea-awesome_nested_set", :lib => 'awesome_nested_set'
+  config.gem "awesome_nested_set"
 
 == Usage
 

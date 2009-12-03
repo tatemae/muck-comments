@@ -21,6 +21,20 @@ module MuckCommentsHelper
                                                     :comment_button_class => comment_button_class}
   end
 
+  # Render a comment for using the tiny mce editor.  Note that this method 
+  # requires that muck-contents be installed and configured correctly and that the 
+  # controller that calls the page where this method is called have 'uses_tiny_mce' defined ie:
+  #    uses_tiny_mce(:options => GlobalConfig.simple_mce_options,
+  #                  :only => [:new, :create, :edit, :update])
+  # parent is the object to which the comments will be attached
+  # comment is the optional parent comment for the new comment.
+  def tiny_mce_comment_form(parent, comment = nil, render_new = false, comment_button_class = 'comment-submit')
+    render :partial => 'comments/tiny_mce_form', :locals => {:parent => parent, 
+                                                             :comment => comment, 
+                                                             :render_new => render_new,
+                                                             :comment_button_class => comment_button_class}
+  end
+  
   # make_muck_parent_params is defined in muck-engine and used by many of the engines.
   # This will generate a url suitable for a form to post a create to.
   def new_comment_path_with_parent(parent)
