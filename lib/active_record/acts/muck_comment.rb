@@ -9,6 +9,11 @@ module ActiveRecord
 
         def acts_as_muck_comment(options = {})
 
+          default_options = { 
+            :sanitize_content => true,
+          }
+          options = default_options.merge(options)
+          
           acts_as_nested_set :scope => [:commentable_id, :commentable_type]
           validates_presence_of :body
           belongs_to :user
@@ -18,7 +23,11 @@ module ActiveRecord
           named_scope :by_newest, :order => "created_at DESC"
           named_scope :by_oldest, :order => "created_at ASC"
           named_scope :recent, lambda { { :conditions => ['created_at > ?', 1.week.ago] } }
-                            
+          
+          if options[:sanitize_content]
+            before_save :sanitize_attributes
+          end
+
           class_eval <<-EOV
             # prevents a user from submitting a crafted form that bypasses activation
             attr_protected :created_at, :updated_at
@@ -78,6 +87,34 @@ module ActiveRecord
           false
         end
 
+        # Sanitize content before saving.  This prevent XSS attacks and other malicious html.
+        def sanitize_attributes
+          if self.sanitize_level
+            self.body = Sanitize.clean(self.body, self.sanitize_level)
+          end
+        end
+        
+        # Override this method to control sanitization levels.
+        # Currently a user who is an admin will not have their content sanitized.  A user
+        # in any role 'editor', 'manager', or 'contributor' will be given the 'RELAXED' settings
+        # while all other users will get 'BASIC'.
+        #
+        # By default the 'creator' of the content will be used to determine which level of
+        # sanitization is allowed.  To change this set 'current_editor' before
+        #
+        # Options are from sanitze:
+        # nil - no sanitize
+        # Sanitize::Config::RELAXED
+        # Sanitize::Config::BASIC
+        # Sanitize::Config::RESTRICTED
+        # for more details see: http://rgrove.github.com/sanitize/
+        def sanitize_level
+          return Sanitize::Config::BASIC if self.user.nil?
+          return nil if self.user.admin?
+          return Sanitize::Config::RELAXED if self.user.any_role?('editor', 'manager', 'contributor')
+          Sanitize::Config::BASIC
+        end
+        
       end
     end
   end

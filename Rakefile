@@ -54,6 +54,8 @@ begin
     gemspec.description = "The comment engine for the muck system."
     gemspec.authors = ["Justin Ball", "Joel Duffin"]
     gemspec.rubyforge_project = 'muck-comments'
+    gemspec.add_dependency "sanitize"
+    gemspec.add_dependency "awesome_nested_set"
     gemspec.add_dependency "muck-engine"
     gemspec.add_dependency "muck-users"
   end

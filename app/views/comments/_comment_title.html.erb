@@ -1,5 +1,3 @@
-<% c = comment_title.comment.dup.gsub(/\[youtube:+.+\]/, '') %>
-
 <div id="<%= comment_title.dom_id %>" class="comment_holder">
   <%= icon comment_title.user, :small, :class => 'left avatar_on_comment' %> 
 	<div class="date_details">
@@ -8,7 +6,7 @@
 																														 										profile_path(comment_title.user))} %> 
 	</div>
 	<div class="comment_message">
-      <%= sanitize(textilize(c)) %>
+      <%= comment_title.body %>
   </div>
   <div class="clear"></div>
 </div>
