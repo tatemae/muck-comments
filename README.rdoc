@@ -10,7 +10,8 @@ Install the the awesome_nested_set gem (http://github.com/collectiveidea/awesome
 Then add it to your environment.rb:
 
   config.gem "awesome_nested_set"
-
+  config.gem "sanitize"
+  
 == Usage
 
 === Comment model
