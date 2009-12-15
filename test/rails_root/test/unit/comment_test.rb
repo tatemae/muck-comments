@@ -16,9 +16,9 @@ class CommentTest < ActiveSupport::TestCase
     should_belong_to :user
     should_belong_to :commentable
     
-    should_have_named_scope :by_newest
-    should_have_named_scope :by_oldest
-    should_have_named_scope :recent
+    should_scope_by_newest
+    should_scope_by_oldest
+    should_scope_recent
     
     should "require body" do
       assert_no_difference 'Comment.count' do
