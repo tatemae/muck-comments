@@ -1,20 +1,20 @@
 <% 
-form_id = "#{parent.dom_id}_comment_form"
-mce_id = "#{parent.dom_id}_comment"
-message_container_id = "#{@project.dom_id}_message_container"
-message_id = "#{@project.dom_id}_message"
+muck_comment_form_id = "#{parent.dom_id}_comment_form"
+muck_comment_mce_id = "#{parent.dom_id}_comment"
+muck_comment_message_container_id = "#{@project.dom_id}_message_container"
+muck_comment_message_id = "#{@project.dom_id}_message"
 -%>
-<div id="<%= message_container_id %>" class="help-box" style="display:none;">
+<div id="<%= muck_comment_message_container_id %>" class="help-box" style="display:none;">
   <div id="flashMessage" class="message">
-    <div id="<%= message_id %>" class="notice message"></div>
+    <div id="<%= muck_comment_message_id %>" class="notice message"></div>
   </div>
 </div>
 <div id="<%= parent.dom_id %>_new_comment" class="comment-form-wrapper">
-  <% form_for(:comment, :url => new_comment_path_with_parent(parent), :html => { :id => form_id, :class => "comment-form"} ) do |f| -%>
-    <%= f.text_area :body, :class => 'mceEditor min', :id => mce_id %>
+  <% form_for(:comment, :url => new_comment_path_with_parent(parent), :html => { :id => muck_comment_form_id, :class => "comment-form"} ) do |f| -%>
+    <%= f.text_area :body, :class => 'mceEditor min', :id => muck_comment_mce_id %>
     <%= hidden_field_tag :parent_comment_id, comment.id unless comment.blank? -%>
     <%= hidden_field_tag :render_new, render_new -%>
     <%= f.submit t('muck.comments.add_comment_button'), :class => "button #{comment_button_class}", :id => "comment_submit_#{parent.dom_id}" %>
   <% end -%>
 </div>
-<%= tiny_mce_scripts(:form_id => form_id, :mce_id => mce_id, :message_container_id => message_container_id, :message_id => message_id) -%>
+<%= tiny_mce_scripts(:form_id => muck_comment_form_id, :mce_id => muck_comment_mce_id, :message_container_id => muck_comment_message_container_id, :message_id => muck_comment_message_id, :include_save_page => false) -%>
