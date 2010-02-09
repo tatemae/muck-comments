@@ -55,11 +55,7 @@ class Muck::CommentsController < ApplicationController
         flash[:notice] = t('muck.comments.comment_removed')
         redirect_back_or_default(current_user)
       end
-      format.js do
-        render(:update) do |page|
-          page << "jQuery('##{@comment.dom_id}').fadeOut();"
-        end
-      end
+      format.js { render :text => "jQuery('##{@comment.dom_id}').fadeOut();" }
       format.json { render :json => { :success => true, :message => t("muck.comments.comment_removed"), :comment_id => @comment.id } }
     end
   end  
@@ -98,7 +94,7 @@ class Muck::CommentsController < ApplicationController
           flash[:notice] = I18n.t('muck.comments.cant_delete_comment')
           redirect_back_or_default current_user
         end
-        format.js { render(:update){|page| page.alert I18n.t('muck.comments.cant_delete_comment')}}
+        format.js { render :template => 'comments/permission_denied', :layout => false }
       end
     end
   end
