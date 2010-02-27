@@ -62,59 +62,59 @@ class Muck::CommentsController < ApplicationController
 
   protected
 
-  def handle_after_create(success, message = '')
-    if success
-      respond_to do |format|
-        format.html { do_after_create_action(success, message) }
-        format.json { render :json => { :success => true, :comment => @comment, :message => message, :parent_id => @parent.id, :html => get_parent_comment_html(@parent, @comment) } }
-      end
-    else
-      respond_to do |format|
-        format.html { do_after_create_action }
-        format.json { render :json => { :success => false, :message => message, :errors => @errors } }
-      end
-    end
-  end
-  
-  def do_after_create_action(success, message)
-    flash[:error] = message if !success
-    if "true" == params[:render_new]
-      flash[:notice] = message if success
-      render :template => 'comments/new'
-    else
-      redirect_back_or_default(@parent)
-    end
-  end
-  
-  def get_comment
-    @comment = Comment.find(params[:id])
-    unless @comment.can_edit?(current_user)
-      respond_to do |format|
-        format.html do
-          flash[:notice] = I18n.t('muck.comments.cant_delete_comment')
-          redirect_back_or_default current_user
+    def handle_after_create(success, message = '')
+      if success
+        respond_to do |format|
+          format.html { do_after_create_action(success, message) }
+          format.json { render :json => { :success => true, :comment => @comment, :message => message, :parent_id => @parent.id, :html => get_parent_comment_html(@parent, @comment) } }
         end
-        format.js { render :template => 'comments/permission_denied', :layout => false }
+      else
+        respond_to do |format|
+          format.html { do_after_create_action(success, message) }
+          format.json { render :json => { :success => false, :message => message, :errors => @errors } }
+        end
       end
     end
-  end
-
-  def get_parent_comment_html(parent, comment)
-    truncate_comment = false
-    length = 30
-    omission = '...'
-    render_as_html do
-      render_to_string(:partial => "#{parent.class.to_s.tableize}/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
-    end
-  rescue ActionView::MissingTemplate
-    render_as_html do
-      render_to_string(:partial => "comments/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
-    end
-    #I18n.t('muck.comments.missing_comment_template_error', :partial => "#{parent.class.to_s.tableize}/comment")
-  end
   
-  def has_permission?
-    @parent.can_comment?(current_user)
-  end
+    def do_after_create_action(success, message)
+      flash[:error] = message if !success
+      if "true" == params[:render_new]
+        flash[:notice] = message if success
+        render :template => 'comments/new'
+      else
+        redirect_back_or_default(@parent)
+      end
+    end
+  
+    def get_comment
+      @comment = Comment.find(params[:id])
+      unless @comment.can_edit?(current_user)
+        respond_to do |format|
+          format.html do
+            flash[:notice] = I18n.t('muck.comments.cant_delete_comment')
+            redirect_back_or_default current_user
+          end
+          format.js { render :template => 'comments/permission_denied', :layout => false }
+        end
+      end
+    end
+
+    def get_parent_comment_html(parent, comment)
+      truncate_comment = false
+      length = 30
+      omission = '...'
+      render_as_html do
+        render_to_string(:partial => "#{parent.class.to_s.tableize}/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
+      end
+    rescue ActionView::MissingTemplate
+      render_as_html do
+        render_to_string(:partial => "comments/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
+      end
+      #I18n.t('muck.comments.missing_comment_template_error', :partial => "#{parent.class.to_s.tableize}/comment")
+    end
+  
+    def has_permission?
+      @parent.can_comment?(current_user)
+    end
   
 end
