@@ -3,6 +3,6 @@
     <%= f.text_area :body, :class => 'min' %>
     <%= hidden_field_tag :parent_comment_id, comment.id unless comment.blank? -%>
     <%= hidden_field_tag :render_new, render_new -%>
-    <%= f.submit t('muck.comments.add_comment_button'), :class => "button #{comment_button_class}", :id => "comment_submit_#{parent.dom_id}" %>
+    <%= f.submit comment_button_text || t('muck.comments.add_comment_button'), :class => "button #{comment_button_class}", :id => "comment_submit_#{parent.dom_id}" %>
   <% end -%>
 </div>

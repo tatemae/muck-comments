@@ -14,7 +14,7 @@ muck_comment_message_id = "#{@project.dom_id}_message"
     <%= f.text_area :body, :class => 'mceEditor min', :id => muck_comment_mce_id %>
     <%= hidden_field_tag :parent_comment_id, comment.id unless comment.blank? -%>
     <%= hidden_field_tag :render_new, render_new -%>
-    <%= f.submit t('muck.comments.add_comment_button'), :class => "button #{comment_button_class}", :id => "comment_submit_#{parent.dom_id}" %>
+    <%= f.submit comment_button_text || t('muck.comments.add_comment_button'), :class => "button #{comment_button_class}", :id => "comment_submit_#{parent.dom_id}" %>
   <% end -%>
 </div>
 <%= tiny_mce_scripts(:form_id => muck_comment_form_id, :mce_id => muck_comment_mce_id, :message_container_id => muck_comment_message_container_id, :message_id => muck_comment_message_id, :include_save_page => false) -%>

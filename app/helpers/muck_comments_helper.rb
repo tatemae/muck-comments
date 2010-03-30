@@ -14,11 +14,12 @@ module MuckCommentsHelper
   
   # parent is the object to which the comments will be attached
   # comment is the optional parent comment for the new comment.
-  def comment_form(parent, comment = nil, render_new = false, comment_button_class = 'comment-submit')
+  def comment_form(parent, comment = nil, render_new = false, comment_button_class = 'comment-submit', comment_button_text = nil)
     render :partial => 'comments/form', :locals => {:parent => parent, 
                                                     :comment => comment, 
                                                     :render_new => render_new,
-                                                    :comment_button_class => comment_button_class}
+                                                    :comment_button_class => comment_button_class,
+                                                    :comment_button_text => comment_button_text }
   end
 
   # Render a comment for using the tiny mce editor.  Note that this method 
@@ -28,11 +29,12 @@ module MuckCommentsHelper
   #                  :only => [:new, :create, :edit, :update])
   # parent is the object to which the comments will be attached
   # comment is the optional parent comment for the new comment.
-  def tiny_mce_comment_form(parent, comment = nil, render_new = false, comment_button_class = 'comment-submit')
+  def tiny_mce_comment_form(parent, comment = nil, render_new = false, comment_button_class = 'comment-submit', comment_button_text = nil)
     render :partial => 'comments/tiny_mce_form', :locals => {:parent => parent, 
                                                              :comment => comment, 
                                                              :render_new => render_new,
-                                                             :comment_button_class => comment_button_class}
+                                                             :comment_button_class => comment_button_class,
+                                                             :comment_button_text => comment_button_text}
   end
   
   # make_muck_parent_params is defined in muck-engine and used by many of the engines.
