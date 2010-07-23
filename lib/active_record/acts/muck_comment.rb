@@ -17,12 +17,13 @@ module ActiveRecord
           acts_as_nested_set :scope => [:commentable_id, :commentable_type]
           validates_presence_of :body
           belongs_to :user
-          belongs_to :commentable, :counter_cache => 'comment_count', :polymorphic => true, :touch => true
+          belongs_to :commentable, :polymorphic => true, :counter_cache => 'comment_count', :touch => true
 
           named_scope :limit, lambda { |num| { :limit => num } }
-          named_scope :by_newest, :order => "created_at DESC"
-          named_scope :by_oldest, :order => "created_at ASC"
-          named_scope :recent, lambda { { :conditions => ['created_at > ?', 1.week.ago] } }
+          named_scope :by_newest, :order => "comments.created_at DESC"
+          named_scope :by_oldest, :order => "comments.created_at ASC"
+          named_scope :recent, lambda { { :conditions => ['comments.created_at > ?', 1.week.ago] } }
+          named_scope :by_user, lambda { { :conditions => ['comments.user_id  ?', user.id] } }
           
           if options[:sanitize_content]
             before_save :sanitize_attributes
@@ -41,30 +42,6 @@ module ActiveRecord
 
       # class methods
       module SingletonMethods
-        
-        # Helper class method to lookup all comments assigned
-        # to all commentable types for a given user.
-        def find_comments_by_user(user)
-          find(:all,
-            :conditions => ["user_id = ?", user.id],
-            :order => "created_at DESC"
-          )
-        end
-
-        # Helper class method to look up all comments for 
-        # commentable class name and commentable id.
-        def find_comments_for_commentable(commentable_str, commentable_id)
-          find(:all,
-            :conditions => ["commentable_type = ? and commentable_id = ?", commentable_str, commentable_id],
-            :order => "created_at DESC"
-          )
-        end
-
-        # Helper class method to look up a commentable object
-        # given the commentable class name and id 
-        def find_commentable(commentable_str, commentable_id)
-          commentable_str.constantize.find(commentable_id)
-        end
 
       end
       
