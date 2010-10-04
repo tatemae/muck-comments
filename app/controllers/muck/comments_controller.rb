@@ -1,5 +1,4 @@
 class Muck::CommentsController < ApplicationController
-  unloadable
   
   before_filter :setup_parent, :only => [:new, :create]
   before_filter :has_permission?, :only => [:new, :create]

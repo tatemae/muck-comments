@@ -3,14 +3,9 @@
 Add comments to any object.  This gem is the muck version of acts_as_commentable_with_threading (http://github.com/elight/acts_as_commentable_with_threading/tree/master)
 
 == Setup
-Install the the awesome_nested_set gem (http://github.com/collectiveidea/awesome_nested_set/tree/master)
+Add the gem to your Gemfile:
 
-  sudo gem install awesome_nested_set
-
-Then add it to your environment.rb:
-
-  config.gem "awesome_nested_set"
-  config.gem "sanitize"
+  gem "muck-comments"
   
 == Usage
 
@@ -18,9 +13,8 @@ Then add it to your environment.rb:
 Create a model called comment in your project and add the following:
   
   class Comment < ActiveRecord::Base
-    acts_as_muck_comment
+    include MuckComments::Models::Comment
   end
-This let's you add any other methods to the comment model that you see fit.
 
 === Comment controller
 Override the comments controller to change the the security model.  For example:
@@ -30,7 +24,7 @@ Override the comments controller to change the the security model.  For example:
     before_filter :login_required # require the user to be logged in to make a comment
     
     # Modify this method to change how permissions are checked to see if a user can comment.
-    # Each model that implements 'acts_as_muck_comment' can override can_comment? to 
+    # Each model that implements 'include MuckComments::Models::Comment' can override 'can_comment?' to 
     # change how comment permissions are handled.
     def has_permission_to_comment(user, parent)
       parent.can_comment?(user)
@@ -40,12 +34,13 @@ Override the comments controller to change the the security model.  For example:
 
 === Attach comments to a model:
 
-For a given model add 'acts_as_commentable'
+For a given model add 'include MuckComments::Models::Comment'
+
   class Blog < ActiveRecord::Base
-    acts_as_commentable
+    include MuckComments::Models::Comment
   end
 
-'acts_as_commentable' will automatically track the count, but you will need to add a column to your table called comment_count:
+'include MuckComments::Models::Comment' will automatically track the count, but you will need to add a column to your table called comment_count:
 
   class AddCommentCache < ActiveRecord::Migration
     def self.up
@@ -62,12 +57,14 @@ Then you will be able to do this to get a comment count:
   @blog.comment_count
 
 === Configuration
-Add the following to globalconfig.yml:
-  send_email_for_new_comments: true
+Create an initializer with the following:
 
-This will send out an email to each user that has participated in a comment thread.  The default email is basic and only includes the body
-of the comment.  Add new email views to provide a better email for you users.  They can be found in app/views/comment_mailer/new_comment.text.html.erb
-and app/views/comment_mailer/new_comment.text.plain.erb
+  MuckComments.configure do |config|
+    config.send_email_for_new_comments = true # If true this will send out an email to each user that has participated in a comment thread.  The default email is basic and only includes the body
+                                              # of the comment.  Add new email views to provide a better email for you users.  They can be found in app/views/comment_mailer/new_comment.html.erb
+                                              # and app/views/comment_mailer/new_comment.text.erb
+    config.sanitize_content = true            # Turns sanitize off/on for comments. We highly recommend leaving this on.
+  end
 
 === Comment partial
 When calling create in the comments controller with :format => 'json' the resulting json will include an 'html' field that contains
@@ -83,4 +80,4 @@ For example, for an object 'activity' that acts_as_commentable create a partial 
 
 
 
-Copyright (c) 2009 Tatemai, released under the MIT license
+Copyright (c) 2009-2010 Tatemai, released under the MIT license

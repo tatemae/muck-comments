@@ -25,7 +25,7 @@ module MuckCommentsHelper
   # Render a comment for using the tiny mce editor.  Note that this method 
   # requires that muck-contents be installed and configured correctly and that the 
   # controller that calls the page where this method is called have 'uses_tiny_mce' defined ie:
-  #    uses_tiny_mce(:options => GlobalConfig.simple_mce_options,
+  #    uses_tiny_mce(:options => MuckContents.configuration.simple_mce_options,
   #                  :only => [:new, :create, :edit, :update])
   # parent is the object to which the comments will be attached
   # comment is the optional parent comment for the new comment.
