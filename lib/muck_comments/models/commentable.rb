@@ -1,26 +1,11 @@
-# ActsAsCommentableWithThreading
-module Acts #:nodoc:
-  module CommentableWithThreading #:nodoc:
-
-    def self.included(base)
-      base.extend ClassMethods
-    end
-
-    module ClassMethods
-      def acts_as_commentable
+module MuckComments
+  module Models
+    module Commentable
+      extend ActiveSupport::Concern
+    
+      included do
         has_many :comments, :as => :commentable, :dependent => :destroy
-        include Acts::CommentableWithThreading::InstanceMethods
-        extend Acts::CommentableWithThreading::SingletonMethods
       end
-    end
-    
-    # This module contains class methods
-    module SingletonMethods
-      
-    end
-    
-    # This module contains instance methods
-    module InstanceMethods
       
       # Helper method to display only root threads, no children/replies
       def root_comments
@@ -42,5 +27,3 @@ module Acts #:nodoc:
     
   end
 end
-
-ActiveRecord::Base.send(:include, Acts::CommentableWithThreading)

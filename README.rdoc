@@ -71,7 +71,7 @@ When calling create in the comments controller with :format => 'json' the result
 a rendered version of the comment html.  To facilitate this process be sure to create a partial called '_comment.html.erb' under a directory
 with the same name as the parent object.  The partial will be passed an object 'comment_owner' that references the parent object.
 
-For example, for an object 'activity' that acts_as_commentable create a partial 'activities/_comment.html.erb'.  The contents might look like this:
+For example, for an object 'activity' that include MuckComments::Models::Commentable create a partial 'activities/_comment.html.erb'.  The contents might look like this:
 
   <div id="<%= comment.dom_id %>">
     <span class="user"><%= link_to comment_owner.user, comment_owner.user %></span>
