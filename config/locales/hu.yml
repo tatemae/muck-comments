@@ -2,18 +2,18 @@
 hu: 
   muck: 
     activity_templates: 
-      comment: Észrevételeket
+      comment: Hozzászólások
     comments: 
-      add_comment: Megjegyzést
+      add_comment: Megjegyzés
       add_comment_button: "Add Comment"
-      anonymous: Anonim
+      anonymous: névtelen
       cant_delete_comment: "Önnek nincs jogosultsága törölni ezt a megjegyzést"
-      comment_removed: "Comment sikeresen eltávolították."
+      comment_removed: "Hozzászólás sikeresen eltávolítottak."
       create_error: "Nem sikerült létrehozni a megjegyzés %{errors}"
-      create_success: "Sikeresen hozzáadott comment"
-      missing_comment_template_error: "Nem találom a részleges nevű %{partial}. Kérjük, hozzon létre egy megjegyzést a részleges és próbálja újra."
-      new_comment_email_subject: "Új hozzászólás a %{name}} a %{application_name}"
-      new_comment_no_title: "Hozzáadása Új hozzászólás"
+      create_success: "Sikeresen hozzá megjegyzést"
+      missing_comment_template_error: "Nem található részleges nevű %{partial}. Kérjük, hozzon létre egy megjegyzést részleges és próbálja újra."
+      new_comment_email_subject: "Új megjegyzése %{name}} a %{application_name}"
+      new_comment_no_title: "Új hozzászólás"
       new_comment_with_title: "Új hozzászólás a %{title}"
-      problem_adding_comment: "Hiba történt a hozzáadja a comment"
-      view_thread: "Tekintse meg a téma megvitatását."
+      problem_adding_comment: "Volt egy probléma, hozzátéve, írja meg véleményét"
+      view_thread: "Nézd meg a vita téma."

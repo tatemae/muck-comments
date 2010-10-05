@@ -4,15 +4,15 @@ lt:
     activity_templates: 
       comment: Komentarai
     comments: 
-      add_comment: Komentaras
+      add_comment: Komentuoti
       add_comment_button: "Pridėti komentarą"
-      anonymous: Anonymous
-      cant_delete_comment: "Jūs neturite leidimo, trinti, kad komentaras"
-      comment_removed: "Komentaras sėkmingai ištrintas."
+      anonymous: anoniminis
+      cant_delete_comment: "Jūs neturite leidimo ištrinti, kad komentarą"
+      comment_removed: "Komentuoti sėkmingai pašalinta."
       create_error: "Nepavyko sukurti komentarą %{errors}"
-      create_success: "Sėkmingai pridėti komentarą"
-      missing_comment_template_error: "Nepavyko rasti dalinio pavadintas %{partial}. Prašome sukurti komentaras dalinis ir bandykite dar kartą."
-      new_comment_email_subject: "Naujas komentaras nuo %{name}} dėl %{application_name}"
+      create_success: "Sėkmingai pridėta komentarą"
+      missing_comment_template_error: "Nepavyko rasti dalinio pavadinimu %{partial}. Sukurkite komentarą dalinis ir bandykite dar kartą."
+      new_comment_email_subject: "Naujas komentaras iš %{name}} dėl %{application_name}"
       new_comment_no_title: "Pridėti naują komentarą"
       new_comment_with_title: "Pridėti naują komentarą %{title}"
       problem_adding_comment: "Iškilo problema pridėti savo komentarą"

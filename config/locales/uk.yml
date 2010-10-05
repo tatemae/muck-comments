@@ -2,18 +2,18 @@
 uk: 
   muck: 
     activity_templates: 
-      comment: Коментарів
+      comment: Коментарі
     comments: 
-      add_comment: Коментарі
+      add_comment: Коментар
       add_comment_button: "Додати коментар"
-      anonymous: анонімно
+      anonymous: Анонім
       cant_delete_comment: "У вас немає дозволу на видалення, що коментар"
-      comment_removed: "Коментарі успішно вилучено."
-      create_error: "Не вдалося створити свій коментар %{errors}"
+      comment_removed: "Коментар успішно знищений."
+      create_error: "Не вдалося створити коментар %{errors}"
       create_success: "Успішно доданий коментар"
-      missing_comment_template_error: "Не знайшов часткове їм %{partial}. Будь ласка, створіть коментар часткової і спробуйте знову."
+      missing_comment_template_error: "Не знайшов часткове імені %{partial}. Будь ласка, створіть коментар часткової і спробуйте ще раз."
       new_comment_email_subject: "Новий коментар від %{name}} на %{application_name}"
       new_comment_no_title: "Додати новий коментар"
       new_comment_with_title: "Додати новий коментар до %{title}"
-      problem_adding_comment: "Був проблема додати свій коментар"
-      view_thread: "Переглянути обговорення потік."
+      problem_adding_comment: "Існував проблеми додавши свій коментар"
+      view_thread: "Переглянути обговорення потоку."

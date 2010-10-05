@@ -4,16 +4,16 @@ fi:
     activity_templates: 
       comment: Kommentit
     comments: 
-      add_comment: Kommentin
+      add_comment: Kommentoi
       add_comment_button: "Lisää kommentti"
-      anonymous: nimettömiksi
-      cant_delete_comment: "Sinulla ei ole lupaa poistaa tuon kommentin"
+      anonymous: Nimetön
+      cant_delete_comment: "Sinulla ei ole lupaa poistaa tämän kommentin"
       comment_removed: "Kommentti poistettiin onnistuneesti."
-      create_error: "Ei voitu luoda kommentti %{errors}"
-      create_success: "Lisätty kommentti"
-      missing_comment_template_error: "Ei löytänyt osittain nimeltä %{partial}. Luo kommentti osittain ja yritä uudelleen."
-      new_comment_email_subject: "Uusi kommentteja %{name}} on %{application_name}"
+      create_error: "Ei voitu luoda kommentoida %{errors}"
+      create_success: "Onnistuneesti lisätty kommentti"
+      missing_comment_template_error: "Ei löytynyt osittainen nimeltä %{partial}. Luo kommentti osittainen ja yritä uudelleen."
+      new_comment_email_subject: "Uusi kommentti %{name}} on %{application_name}"
       new_comment_no_title: "Lisää uusi kommentti"
       new_comment_with_title: "Lisää uusi kommentti %{title}"
-      problem_adding_comment: "Oli ongelma lisäämällä kommenttisi"
-      view_thread: "Näytä keskustelu säiettä."
+      problem_adding_comment: "Ongelma lisäämällä kommenttisi"
+      view_thread: "Näytä keskustelun säiettä."

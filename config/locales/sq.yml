@@ -5,14 +5,14 @@ sq:
       comment: Komente
     comments: 
       add_comment: Koment
-      add_comment_button: "Add Comment"
+      add_comment_button: "Shto Koment"
       anonymous: anonim
-      cant_delete_comment: "Ju nuk keni leje të fshini komentin"
-      comment_removed: "Komenti sukses hequr."
-      create_error: "Nuk mund të krijojnë %{errors} koment"
-      create_success: "Sukses shtuar koment"
-      missing_comment_template_error: "Nuk mund të gjeni një %{partial}. pjesshëm të quajtur Ju lutem krijoni një koment të pjesshme dhe provoni përsëri."
-      new_comment_email_subject: "Koment i ri nga %{name}} më %{application_name}"
+      cant_delete_comment: "Ju nuk keni leje për të fshini se koment"
+      comment_removed: "Komenti i hoq me sukses."
+      create_error: "I pamundur krijimi i koment %{errors}"
+      create_success: "Shtua me sukses koment"
+      missing_comment_template_error: "Nuk mund të gjeni një të pjesshëm me emrin %{partial}. Ju lutem krijoni një koment të pjesshme dhe të provoni përsëri."
+      new_comment_email_subject: "koment i ri nga %{name}} në %{application_name}"
       new_comment_no_title: "Shto një koment të ri"
       new_comment_with_title: "Shto një koment të ri për të %{title}"
       problem_adding_comment: "Nuk ishte një problem duke shtuar komentin tuaj"

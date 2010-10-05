@@ -5,13 +5,13 @@ nl:
       comment: Reacties
     comments: 
       add_comment: Reactie
-      add_comment_button: Toevoegen
+      add_comment_button: "Reactie toevoegen"
       anonymous: anoniem
-      cant_delete_comment: "Je hebt geen toestemming om deze reactie te verwijderen"
-      comment_removed: "Commentaar succesvol verwijderd."
-      create_error: "Kan niet maken de opmerking %{errors}"
-      create_success: "Toegevoegd commentaar"
-      missing_comment_template_error: "Kan niet vinden een gedeeltelijke genaamd %{partial}. Maak een opmerking gedeeltelijke en probeer het opnieuw."
+      cant_delete_comment: "Je hebt geen toestemming om die opmerking te verwijderen"
+      comment_removed: "Reageren met succes verwijderd."
+      create_error: "Kon niet de opmerking %{errors}"
+      create_success: "Toegevoegd comment"
+      missing_comment_template_error: "Kon het niet vinden een gedeeltelijke naam %{partial}. Maak een opmerking gedeeltelijke en probeer het opnieuw."
       new_comment_email_subject: "Nieuwe commentaar van %{name}} op %{application_name}"
       new_comment_no_title: "Voeg een nieuwe reactie"
       new_comment_with_title: "Voeg een nieuw commentaar te %{title}"

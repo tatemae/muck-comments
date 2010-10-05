@@ -4,16 +4,16 @@ el:
     activity_templates: 
       comment: Σχόλια
     comments: 
-      add_comment: Σχόλιο
-      add_comment_button: "Προσθήκη σχολίου"
+      add_comment: Σχολιάστε
+      add_comment_button: "Προσθέστε σχόλιο"
       anonymous: ανώνυμος
-      cant_delete_comment: "Δεν έχετε την άδεια να διαγράψετε αυτό το σχόλιο"
-      comment_removed: "Σχόλιο επιτυχώς αφαιρεθεί."
-      create_error: "Δεν ήταν δυνατή η δημιουργία του %{errors} σχόλιο"
-      create_success: "Επιτυχώς προστεθεί σχόλιο"
-      missing_comment_template_error: "Δεν βρήκατε μερική όνομα %{partial}. Παρακαλώ δημιουργήστε ένα σχόλιο μερική και προσπαθήστε ξανά."
+      cant_delete_comment: "Δεν έχετε άδεια να διαγράψετε αυτό το σχόλιο"
+      comment_removed: "Σχόλιο αφαιρεθεί επιτυχώς."
+      create_error: "Δεν μπόρεσα να δημιουργήσω το σχόλιο %{errors}"
+      create_success: "Προστεθεί επιτυχώς σχόλιο"
+      missing_comment_template_error: "Δεν μπόρεσα να βρω μια μερική ονομάζεται %{partial}. Παρακαλώ δημιουργήστε ένα σχόλιο μερική και προσπαθήστε ξανά."
       new_comment_email_subject: "Νέο σχόλιο από %{name}} για %{application_name}"
-      new_comment_no_title: "Προσθέστε ένα νέο σχόλιο"
-      new_comment_with_title: "Προσθέστε ένα νέο σχόλιο για την %{title}"
-      problem_adding_comment: "Υπήρξε ένα πρόβλημα προσθέτοντας το σχόλιό σας"
-      view_thread: "Δείτε το νήμα συζήτηση."
+      new_comment_no_title: "Προσθήκη νέου σχολίου"
+      new_comment_with_title: "Προσθήκη νέου σχολίου για %{title}"
+      problem_adding_comment: "Υπήρξε ένα πρόβλημα προσθέτοντας σχόλιο σας"
+      view_thread: "Δείτε το νήμα συζήτησης."

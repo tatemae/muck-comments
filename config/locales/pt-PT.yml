@@ -7,13 +7,13 @@ pt-PT:
       add_comment: Comentário
       add_comment_button: Comentar
       anonymous: anônimo
-      cant_delete_comment: "Você não tem permissão para excluir esse comentário"
+      cant_delete_comment: "Você não tem permissão para excluir este comentário"
       comment_removed: "Comentário removido com sucesso."
-      create_error: "Não foi possível criar o %{errors} comentário"
-      create_success: "Adicionou comentário"
-      missing_comment_template_error: "Não foi possível encontrar um %{partial}. parcial nomeado Por favor, crie um comentário parcial e tente novamente."
+      create_error: "Não foi possível criar o comentário %{errors}"
+      create_success: "Adicionado com sucesso comentário"
+      missing_comment_template_error: "Não foi possível encontrar uma parcial chamada %{partial}. Por favor, crie um comentário parcial e tente novamente."
       new_comment_email_subject: "Novo comentário de %{name}} em %{application_name}"
       new_comment_no_title: "Adicionar um novo comentário"
       new_comment_with_title: "Adicionar um novo comentário para %{title}"
       problem_adding_comment: "Houve um problema ao adicionar o seu comentário"
-      view_thread: "Ver tema a discussão."
+      view_thread: "Ver o tópico de discussão."

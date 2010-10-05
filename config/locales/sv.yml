@@ -4,10 +4,10 @@ sv:
     activity_templates: 
       comment: Kommentarer
     comments: 
-      add_comment: Kommentar
-      add_comment_button: "Add Comment"
+      add_comment: Kommentera
+      add_comment_button: "Lägg till kommentar"
       anonymous: anonym
-      cant_delete_comment: "Du har inte behörighet att ta bort denna kommentar"
+      cant_delete_comment: "Du har inte behörighet att ta bort den kommentaren"
       comment_removed: "Kommentar tagits bort."
       create_error: "Kunde inte skapa kommentaren %{errors}"
       create_success: "Lagts till kommentar"
@@ -16,4 +16,4 @@ sv:
       new_comment_no_title: "Lägg till en ny kommentar"
       new_comment_with_title: "Lägg till en ny kommentar till %{title}"
       problem_adding_comment: "Det uppstod ett problem att lägga till din kommentar"
-      view_thread: "Se diskussionen tråd."
+      view_thread: "Se diskussionen tråden."

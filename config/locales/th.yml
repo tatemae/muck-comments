@@ -2,18 +2,18 @@
 th: 
   muck: 
     activity_templates: 
-      comment: "ความ คิดเห็น"
+      comment: ความคิดเห็น
     comments: 
-      add_comment: "ความ คิดเห็น"
-      add_comment_button: "เพิ่ม ความ คิดเห็น"
-      anonymous: "ไม่ ระบุ ชื่อ"
-      cant_delete_comment: "คุณ ไม่ ได้ รับ สิทธิ์ ใน การ ลบ ความ คิดเห็น ที่"
-      comment_removed: "ความ คิดเห็น สำเร็จ ลบ."
-      create_error: "ไม่ สามารถ สร้าง %{errors} ความ คิดเห็น"
-      create_success: "สำเร็จ เพิ่ม ความ คิดเห็น"
-      missing_comment_template_error: "ไม่ พบ %{partial}. ชื่อ บาง ส่วน โปรด สร้าง ความ คิดเห็น บาง ส่วน และ ลอง อีก ครั้ง."
-      new_comment_email_subject: "ความ คิดเห็น ใหม่ จาก %{name}} ใน %{application_name}"
-      new_comment_no_title: "เพิ่ม ความ คิดเห็น ใหม่"
-      new_comment_with_title: "เพิ่ม ความ คิดเห็น ใหม่ %{title}"
-      problem_adding_comment: "มี ปัญหา การ เพิ่ม ข้อคิดเห็น ของ คุณ ได้"
-      view_thread: "ดู หัวข้อ สนทนา."
+      add_comment: คิดเห็น
+      add_comment_button: เพิ่มความคิดเห็น
+      anonymous: ไม่ระบุชื่อ
+      cant_delete_comment: คุณไม่ได้รับสิทธิ์ในการลบความคิดเห็นที่
+      comment_removed: สามารถลบความคิดเห็น
+      create_error: "ไม่สามารถสร้างความคิดเห็น %{errors}"
+      create_success: ประสบความสำเร็จเพิ่มความคิดเห็น
+      missing_comment_template_error: "ไม่พบบางส่วนที่มีชื่อ %{partial}. โปรดสร้างความคิดเห็นบางส่วนและลองอีกครั้ง"
+      new_comment_email_subject: "ความคิดเห็นใหม่จาก %{name}} บน %{application_name}"
+      new_comment_no_title: เพิ่มความคิดเห็นใหม่
+      new_comment_with_title: "เพิ่มความคิดเห็นใหม่ในการ %{title}"
+      problem_adding_comment: เกิดปัญหาในการเพิ่มความคิดเห็นของคุณได้
+      view_thread: ดูหัวข้อสนทนา

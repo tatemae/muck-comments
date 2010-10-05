@@ -6,14 +6,14 @@ sr:
     comments: 
       add_comment: Коментар
       add_comment_button: "Додај коментар"
-      anonymous: анонимни
-      cant_delete_comment: "Немате дозволу да избришете ту коментар"
-      comment_removed: "Коментар успешно уклоњен."
-      create_error: "Није могуће направити %{errors} коментар"
-      create_success: "Успешно додато коментар"
-      missing_comment_template_error: "Није могуће пронаћи делимично под називом %{partial}. Молимо креирајте коментар делимично и покушајте поново."
-      new_comment_email_subject: "Нови коментар %{name}} на %{application_name}"
-      new_comment_no_title: "Додај нови коментар"
-      new_comment_with_title: "Додај нови коментар на %{title}"
-      problem_adding_comment: "Дошло је до проблема додати ваш коментар"
-      view_thread: "Погледај расправу нит."
+      anonymous: анониман
+      cant_delete_comment: "Немате дозволу за брисање да коментар"
+      comment_removed: "Коментар је успешно уклоњен."
+      create_error: "Не могу да направим коментар %{errors}"
+      create_success: "Успешно је додао коментар"
+      missing_comment_template_error: "Није могуће пронаћи делимично под називом %{partial}. Молимо Вас да креирате коментар парцијални и покушајте поново."
+      new_comment_email_subject: "Нови коментар од %{name}} на %{application_name}"
+      new_comment_no_title: "Додајте нови коментар"
+      new_comment_with_title: "Додајте нови коментар на %{title}"
+      problem_adding_comment: "Дошло је до проблема додавање Ваш коментар"
+      view_thread: "Погледај нит дискусије."

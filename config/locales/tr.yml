@@ -2,18 +2,18 @@
 tr: 
   muck: 
     activity_templates: 
-      comment: Yorumlar
+      comment: Yorum
     comments: 
       add_comment: Yorum
-      add_comment_button: "Yorum ekle"
+      add_comment_button: "Yorum Ekle"
       anonymous: anonim
-      cant_delete_comment: "Izniniz Bu yorumu silmek zorunda değilsiniz"
+      cant_delete_comment: "Bu yorumu silmek için izniniz yok"
       comment_removed: "Yorum başarıyla kaldırıldı."
-      create_error: "Yorum %{errors} oluşturulamadı"
-      create_success: "Yorum başarıyla eklendi"
-      missing_comment_template_error: "Kısmi adlı %{partial}. bulunamadı Lütfen bir yorum kısmi ve yeniden deneyin oluşturun."
-      new_comment_email_subject: "%{name}} Doğum %{application_name} New Yorum"
-      new_comment_no_title: "Yeni bir yorum ekle"
-      new_comment_with_title: "%{title} Yeni yorum ekle"
-      problem_adding_comment: "Bir sorun yorum ekleme oldu"
-      view_thread: "Profili tartışma thread."
+      create_error: "Yorum oluşturulamadı %{errors}"
+      create_success: "Başarılı bir yorum ekledi"
+      missing_comment_template_error: "adlandırılmış bir kısmi bulunamadı %{partial}. Yorum kısmi oluşturmak ve yeniden deneyin."
+      new_comment_email_subject: "%{name} Üzerinde %{application_name}} Yeni yorum"
+      new_comment_no_title: "Yeni yorum ekle"
+      new_comment_with_title: "yeni yorum ekle %{title}"
+      problem_adding_comment: "Yorum eklemek bir sorun oldu"
+      view_thread: "tartışma iplik görüntüleyin."
