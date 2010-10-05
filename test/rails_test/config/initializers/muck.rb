@@ -60,6 +60,17 @@ MuckComments.configure do |config|
   config.sanitize_content = true            # Turns sanitize off/on for comments. We highly recommend leaving this on.
 end
 
+MuckProfiles.configure do |config|
+  config.enable_solr = false           # This enables or disables acts as solr for profiles.
+  config.enable_geokit = false         # Turn geokit functionality on/off.
+  config.enable_guess_location = false # If true the profile system will attempt to determine the user's location via IP and populated with the location, lat and lon fields.
+  config.policy = { :public => [:login, :first_name, :last_name, :about],
+                     :authenticated => [:location, :city, :state_id, :country_id, :language_id],
+                     :friends => [:email],
+                     :private => [] }
+  
+end
+
 if defined?(ActiveRecord)
   # Don't Include Active Record class name as root for JSON serialized output.
   ActiveRecord::Base.include_root_in_json = false

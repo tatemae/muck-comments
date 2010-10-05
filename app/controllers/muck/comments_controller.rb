@@ -102,14 +102,9 @@ class Muck::CommentsController < ApplicationController
       truncate_comment = false
       length = 30
       omission = '...'
-      render_as_html do
-        render_to_string(:partial => "#{parent.class.to_s.tableize}/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
-      end
+      render_to_string(:partial => "#{parent.class.to_s.tableize}/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})  
     rescue ActionView::MissingTemplate
-      render_as_html do
-        render_to_string(:partial => "comments/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
-      end
-      #I18n.t('muck.comments.missing_comment_template_error', :partial => "#{parent.class.to_s.tableize}/comment")
+      render_to_string(:partial => "comments/comment", :object => comment, :locals => {:comment_owner => parent, :truncate_comment => truncate_comment, :length => length, :omission => omission})
     end
   
     def has_permission?

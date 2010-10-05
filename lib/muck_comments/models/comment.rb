@@ -13,7 +13,7 @@ module MuckComments
         scope :limit, lambda { |num| { :limit => num } }
         scope :by_newest, :order => "comments.created_at DESC"
         scope :by_oldest, :order => "comments.created_at ASC"
-        scope :recent, lambda { { :conditions => ['comments.created_at > ?', 1.week.ago] } }
+        scope :newer_than, lambda { |*args| where("comments.created_at > ?", args.first || 1.week.ago) }
         scope :by_user, lambda { { :conditions => ['comments.user_id  ?', user.id] } }
         
         before_save :sanitize_attributes if MuckComments.configuration.sanitize_content

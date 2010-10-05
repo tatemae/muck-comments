@@ -1,3 +1,3 @@
 class Profile < ActiveRecord::Base
-  acts_as_muck_profile
+  include MuckProfiles::Models::Profile
 end

@@ -18,19 +18,19 @@ describe Comment do
   it { should scope_newer_than }
   
   it "shouldrequire body" do
-    assert_no_difference 'Comment.count' do
+    lambda {
       u = Factory.build(:comment, :body => nil)
-      assert !u.valid?
-      assert u.errors.on(:body)
-    end
+      u.should_not be_valid
+      u.errors[:body].should_not be_empty
+    }.should_not change(Comment, :count)
   end
       
   it "should not have a parent if it is a root Comment" do
-    assert_nil @comment.parent
+    @comment.parent.should be_nil
   end
 
   it "should be able to see how many child Comments it has" do
-    0.should == @comment.children.size
+    @comment.children.size.should == 0
   end
 
   it "should be able to add child Comments" do
@@ -38,7 +38,7 @@ describe Comment do
     parent = Factory(:comment, :commentable => @user)
     child = Factory(:comment, :commentable => @user)
     child.move_to_child_of(parent)
-    1.should == parent.children.size
+    parent.children.size.should == 1
   end    
 
   describe "after having a child added" do

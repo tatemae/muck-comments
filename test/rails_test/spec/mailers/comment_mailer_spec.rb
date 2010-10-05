@@ -16,7 +16,7 @@ describe CommentMailer do
       comment = Factory(:comment)
       email = CommentMailer.new_comment(comment).deliver
       ActionMailer::Base.deliveries.should_not be_empty
-      email.to.should == [user.email]
+      email.to.should == [comment.user.email]
       email.from.should == [MuckEngine.configuration.from_email]
     end
     
