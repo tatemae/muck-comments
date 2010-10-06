@@ -47,7 +47,7 @@ describe Muck::CommentsController do
       @comment = Factory(:comment, :user => @user)
     end
     describe "delete comment" do
-      it "shoulddelete comment" do
+      it "should delete comment" do
         lambda {
           delete :destroy, { :id => @comment.to_param, :format => 'json' }          
           @response.body.should include(I18n.t('muck.comments.comment_removed'))          

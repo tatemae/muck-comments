@@ -13,7 +13,7 @@ Add the gem to your Gemfile:
 Create a model called comment in your project and add the following:
   
   class Comment < ActiveRecord::Base
-    include MuckComments::Models::Comment
+    include MuckComments::Models::MuckComment
   end
 
 === Comment controller
@@ -24,7 +24,7 @@ Override the comments controller to change the the security model.  For example:
     before_filter :login_required # require the user to be logged in to make a comment
     
     # Modify this method to change how permissions are checked to see if a user can comment.
-    # Each model that implements 'include MuckComments::Models::Comment' can override 'can_comment?' to 
+    # Each model that implements 'include MuckComments::Models::MuckComment' can override 'can_comment?' to 
     # change how comment permissions are handled.
     def has_permission_to_comment(user, parent)
       parent.can_comment?(user)
@@ -34,13 +34,13 @@ Override the comments controller to change the the security model.  For example:
 
 === Attach comments to a model:
 
-For a given model add 'include MuckComments::Models::Comment'
+For a given model add 'include MuckComments::Models::MuckComment'
 
   class Blog < ActiveRecord::Base
-    include MuckComments::Models::Comment
+    include MuckComments::Models::MuckComment
   end
 
-'include MuckComments::Models::Comment' will automatically track the count, but you will need to add a column to your table called comment_count:
+'include MuckComments::Models::MuckComment' will automatically track the count, but you will need to add a column to your table called comment_count:
 
   class AddCommentCache < ActiveRecord::Migration
     def self.up
@@ -71,7 +71,7 @@ When calling create in the comments controller with :format => 'json' the result
 a rendered version of the comment html.  To facilitate this process be sure to create a partial called '_comment.html.erb' under a directory
 with the same name as the parent object.  The partial will be passed an object 'comment_owner' that references the parent object.
 
-For example, for an object 'activity' that include MuckComments::Models::Commentable create a partial 'activities/_comment.html.erb'.  The contents might look like this:
+For example, for an object 'activity' that include MuckComments::Models::MuckCommentable create a partial 'activities/_comment.html.erb'.  The contents might look like this:
 
   <div id="<%= comment.dom_id %>">
     <span class="user"><%= link_to comment_owner.user, comment_owner.user %></span>

@@ -1,3 +1,3 @@
 class Comment < ActiveRecord::Base
-  include MuckComments::Models::Comment
+  include MuckComments::Models::MuckComment
 end

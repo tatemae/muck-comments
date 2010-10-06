@@ -13,11 +13,16 @@ describe Comment do
   it { should belong_to :user }
   it { should belong_to :commentable }
   
-  it { should scope_by_newest }
-  it { should scope_by_oldest }
-  it { should scope_newer_than }
+  describe "scopes" do
+    it { should scope_by_newest }
+    it { should scope_by_oldest }
+    it { should scope_newer_than }
+    it "should scope by user" do
+      Comment.by_user(@user).should include(@comment)
+    end
+  end
   
-  it "shouldrequire body" do
+  it "should require body" do
     lambda {
       u = Factory.build(:comment, :body => nil)
       u.should_not be_valid

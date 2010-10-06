@@ -1,13 +1,13 @@
 # == Schema Information
 #
-# Table name: states
+# Table name: countries
 #
 #  id           :integer         not null, primary key
 #  name         :string(128)     default(""), not null
 #  abbreviation :string(3)       default(""), not null
-#  country_id   :integer(8)      not null
+#  sort         :integer         default(1000), not null
 #
 
-class State < ActiveRecord::Base
-  include MuckEngine::Models::State
+class Country < ActiveRecord::Base
+  include MuckEngine::Models::MuckCountry  
 end

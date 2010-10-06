@@ -1,6 +1,7 @@
+# include MuckComments::Models::MuckComment
 module MuckComments
   module Models
-    module Comment
+    module MuckComment
       extend ActiveSupport::Concern
     
       included do
@@ -10,11 +11,10 @@ module MuckComments
         belongs_to :user
         belongs_to :commentable, :polymorphic => true, :counter_cache => 'comment_count', :touch => true
 
-        scope :limit, lambda { |num| { :limit => num } }
         scope :by_newest, :order => "comments.created_at DESC"
         scope :by_oldest, :order => "comments.created_at ASC"
         scope :newer_than, lambda { |*args| where("comments.created_at > ?", args.first || 1.week.ago) }
-        scope :by_user, lambda { { :conditions => ['comments.user_id  ?', user.id] } }
+        scope :by_user, lambda { |*args| where('comments.user_id = ?', args.first) }
         
         before_save :sanitize_attributes if MuckComments.configuration.sanitize_content
         
@@ -23,7 +23,7 @@ module MuckComments
 
       # Send an email to everyone in the thread
       def after_create
-        CommentMailer.deliver_new_comment(self) if MuckComments.configuration.send_email_for_new_comments
+        CommentMailer.new_comment(self).deliver if MuckComments.configuration.send_email_for_new_comments
       end
       
       #helper method to check if a comment has children

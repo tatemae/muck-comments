@@ -1,6 +1,7 @@
+# include MuckComments::Models::MuckCommentable
 module MuckComments
   module Models
-    module Commentable
+    module MuckCommentable
       extend ActiveSupport::Concern
     
       included do
