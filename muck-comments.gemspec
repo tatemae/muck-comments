@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2010-10-05}
+  s.date = %q{2010-10-07}
   s.description = %q{The comment engine for the muck system.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -24,9 +24,6 @@ Gem::Specification.new do |s|
      "app/controllers/muck/comments_controller.rb",
      "app/helpers/muck_comments_helper.rb",
      "app/mailers/comment_mailer.rb",
-     "app/models/country.rb",
-     "app/models/language.rb",
-     "app/models/state.rb",
      "app/views/activity_templates/_comment.erb",
      "app/views/comment_mailer/new_comment.html.erb",
      "app/views/comment_mailer/new_comment.text.erb",
@@ -104,7 +101,10 @@ Gem::Specification.new do |s|
      "test/rails_test/app/helpers/application_helper.rb",
      "test/rails_test/app/models/.keep",
      "test/rails_test/app/models/comment.rb",
+     "test/rails_test/app/models/country.rb",
+     "test/rails_test/app/models/language.rb",
      "test/rails_test/app/models/profile.rb",
+     "test/rails_test/app/models/state.rb",
      "test/rails_test/app/models/user.rb",
      "test/rails_test/app/models/user_session.rb",
      "test/rails_test/app/views/default/index.html.erb",
@@ -755,7 +755,10 @@ Gem::Specification.new do |s|
      "test/rails_test/app/controllers/default_controller.rb",
      "test/rails_test/app/helpers/application_helper.rb",
      "test/rails_test/app/models/comment.rb",
+     "test/rails_test/app/models/country.rb",
+     "test/rails_test/app/models/language.rb",
      "test/rails_test/app/models/profile.rb",
+     "test/rails_test/app/models/state.rb",
      "test/rails_test/app/models/user.rb",
      "test/rails_test/app/models/user_session.rb",
      "test/rails_test/config/application.rb",
