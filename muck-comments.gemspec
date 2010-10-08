@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{muck-comments}
-  s.version = "3.0.0"
+  s.version = "3.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2010-10-07}
+  s.date = %q{2010-10-08}
   s.description = %q{The comment engine for the muck system.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -28,10 +28,10 @@ Gem::Specification.new do |s|
      "app/views/comment_mailer/new_comment.html.erb",
      "app/views/comment_mailer/new_comment.text.erb",
      "app/views/comments/_comment.erb",
-     "app/views/comments/_comment_title.html.erb",
-     "app/views/comments/_form.html.erb",
-     "app/views/comments/_simple_comment.html.erb",
-     "app/views/comments/_tiny_mce_form.html.erb",
+     "app/views/comments/_comment_title.erb",
+     "app/views/comments/_form.erb",
+     "app/views/comments/_simple_comment.erb",
+     "app/views/comments/_tiny_mce_form.erb",
      "app/views/comments/index.html.erb",
      "app/views/comments/new.html.erb",
      "app/views/comments/permission_denied.js.erb",
