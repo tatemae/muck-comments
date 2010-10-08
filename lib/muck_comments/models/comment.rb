@@ -1,3 +1,4 @@
+require 'nested_set'
 # include MuckComments::Models::MuckComment
 module MuckComments
   module Models

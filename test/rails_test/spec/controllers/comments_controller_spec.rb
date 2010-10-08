@@ -2,6 +2,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Muck::CommentsController do
 
+  render_views
+  
   before do
     @user = Factory(:user)
   end
