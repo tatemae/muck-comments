@@ -13,6 +13,15 @@ describe Comment do
   it { should belong_to :user }
   it { should belong_to :commentable }
   
+  describe "sanitize" do
+    before do
+      @comment = Factory(:comment)
+    end
+    it "should sanitize user input fields" do
+      @comment.should sanitize(:body)
+    end
+  end
+  
   describe "scopes" do
     it { should scope_by_newest }
     it { should scope_by_oldest }
