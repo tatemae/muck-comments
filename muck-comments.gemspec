@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Ball", "Joel Duffin"]
-  s.date = %q{2010-10-13}
+  s.date = %q{2010-10-14}
   s.description = %q{The comment engine for the muck system.}
   s.email = %q{justin@tatemae.com}
   s.extra_rdoc_files = [
@@ -94,7 +94,6 @@ Gem::Specification.new do |s|
      "test/rails_test/.gitignore",
      "test/rails_test/.rake_tasks",
      "test/rails_test/Gemfile",
-     "test/rails_test/Gemfile.lock",
      "test/rails_test/Rakefile",
      "test/rails_test/app/controllers/application_controller.rb",
      "test/rails_test/app/controllers/default_controller.rb",

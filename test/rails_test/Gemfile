@@ -17,6 +17,7 @@ gem 'muck-users', :path => "~/projects/muck-users"
 gem 'muck-profiles', :path => "~/projects/muck-profiles"
 gem 'muck-activities', :path => "~/projects/muck-activities"
 gem 'muck-comments', :require => 'muck-comments', :path => '../../'  
+gem 'muck-contents', :path => "~/projects/muck-contents"
   
 if RUBY_VERSION < '1.9'
   gem "ruby-debug"
