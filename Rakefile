@@ -1,9 +1,13 @@
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
+require 'spec/rake/spectask'
 
-desc 'Default: run tests.'
+desc 'Default: run specs.'
 task :default => :spec
+Spec::Rake::SpecTask.new('spec') do |t|
+  t.spec_files = FileList['test/rails_test/spec/**/*_spec.rb']
+end
 
 begin
   require 'rcov/rcovtask'

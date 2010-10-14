@@ -1,7 +1,7 @@
 require 'nested_set'
 require 'sanitize'
-require 'muck_engine'
-require 'muck_users'
+require 'muck-engine'
+require 'muck-users'
 
 require 'muck-comments/config'
 require 'muck-comments/models/comment'
