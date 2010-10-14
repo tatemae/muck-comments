@@ -46,7 +46,7 @@ begin
     gemspec.name = "muck-comments"
     gemspec.summary = "The comment engine for the muck system"
     gemspec.email = "justin@tatemae.com"
-    gemspec.homepage = "http://github.com/tatemae/muck_comments"
+    gemspec.homepage = "http://github.com/tatemae/muck-comments"
     gemspec.description = "The comment engine for the muck system."
     gemspec.authors = ["Justin Ball", "Joel Duffin"]
     gemspec.rubyforge_project = 'muck-comments'
