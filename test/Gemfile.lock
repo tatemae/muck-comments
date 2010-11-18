@@ -9,11 +9,14 @@ GIT
 PATH
   remote: ../
   specs:
-    muck-comments (3.0.2)
+    muck-comments (3.1.0)
       muck-engine
       muck-users
       nested_set
       sanitize
+    overlord (3.0.2)
+      httparty
+      json
 
 PATH
   remote: ~/projects/muck-activities
@@ -180,9 +183,6 @@ GEM
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)
     nokogiri (1.4.3.1)
-    overlord (3.0.2)
-      httparty
-      json
     paperclip (2.3.5)
       activerecord
       activesupport
