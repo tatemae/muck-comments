@@ -10,13 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100206000906) do
+ActiveRecord::Schema.define(:version => 20110303183433) do
 
   create_table "access_code_requests", :force => true do |t|
     t.string   "email"
     t.datetime "code_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "access_code_requests", ["email"], :name => "index_access_code_requests_on_email"
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20100206000906) do
     t.integer  "use_limit",  :default => 1,     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sent_to"
   end
 
   add_index "access_codes", ["code"], :name => "index_access_codes_on_code"
@@ -119,8 +121,10 @@ ActiveRecord::Schema.define(:version => 20100206000906) do
     t.datetime "updated_at"
     t.string   "layout"
     t.integer  "comment_count",    :default => 0
+    t.string   "cached_slug"
   end
 
+  add_index "contents", ["cached_slug"], :name => "index_contents_on_cached_slug"
   add_index "contents", ["creator_id"], :name => "index_contents_on_creator_id"
   add_index "contents", ["parent_id"], :name => "index_contents_on_parent_id"
 
@@ -228,6 +232,33 @@ ActiveRecord::Schema.define(:version => 20100206000906) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "uploads", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "name"
+    t.string   "caption",             :limit => 1000
+    t.text     "description"
+    t.boolean  "is_public",                           :default => true
+    t.integer  "uploadable_id"
+    t.string   "uploadable_type"
+    t.string   "width"
+    t.string   "height"
+    t.string   "local_file_name"
+    t.string   "local_content_type"
+    t.integer  "local_file_size"
+    t.datetime "local_updated_at"
+    t.string   "remote_file_name"
+    t.string   "remote_content_type"
+    t.integer  "remote_file_size"
+    t.datetime "remote_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "uploads", ["creator_id"], :name => "index_uploads_on_creator_id"
+  add_index "uploads", ["local_content_type"], :name => "index_uploads_on_local_content_type"
+  add_index "uploads", ["uploadable_id"], :name => "index_uploads_on_uploadable_id"
+  add_index "uploads", ["uploadable_type"], :name => "index_uploads_on_uploadable_type"
 
   create_table "users", :force => true do |t|
     t.string   "login"
